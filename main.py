@@ -507,9 +507,11 @@ async def main():
                                 pygame.event.post(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_SPACE))
                             break # Stop checking other buttons
                 elif current_game_state == GAME_STATE_START:
-                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_SPACE))
+                    initialise_game_objects()  # Directly call this
+                    set_game_state(GAME_STATE_PLAYING) # Directly call this (set_game_state is defined in main's scope)
                 elif current_game_state == GAME_STATE_GAME_OVER:
-                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_r))
+                    initialise_game_objects()  # Directly call this
+                    set_game_state(GAME_STATE_PLAYING) # Directly call this (set_game_state is defined in main's scope)
 
 
             elif event.type == pygame.MOUSEBUTTONUP:
